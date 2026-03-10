@@ -1,0 +1,878 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LEECH INDIA — Jalaukavacharana Safety Checklist</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --teal: #006666;
+    --teal-light: #e0f2f1;
+    --teal-mid: #4db6ac;
+    --gold: #c9a84c;
+    --cream: #faf7f2;
+    --text: #1a2a2a;
+    --muted: #5a7070;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--cream);
+    color: var(--text);
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+  body::before {
+    content: '';
+    position: fixed; top: -20%; right: -10%;
+    width: 600px; height: 600px;
+    background: radial-gradient(circle, rgba(0,102,102,0.07) 0%, transparent 70%);
+    pointer-events: none; z-index: 0;
+  }
+  body::after {
+    content: '';
+    position: fixed; bottom: -10%; left: -10%;
+    width: 500px; height: 500px;
+    background: radial-gradient(circle, rgba(201,168,76,0.06) 0%, transparent 70%);
+    pointer-events: none; z-index: 0;
+  }
+  .wrapper { position: relative; z-index: 1; max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+
+  /* ── HEADER ── */
+  .site-header {
+    background: var(--teal);
+    padding: 0;
+  }
+  .header-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 18px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .logo-icon {
+    width: 44px; height: 44px;
+    background: rgba(255,255,255,0.12);
+    border: 2px solid rgba(255,255,255,0.25);
+    border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 22px;
+  }
+  .logo-text {
+    display: flex; flex-direction: column;
+  }
+  .logo-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 26px;
+    font-weight: 700;
+    color: white;
+    letter-spacing: 0.06em;
+    line-height: 1;
+  }
+  .logo-sub {
+    font-size: 11px;
+    color: var(--gold);
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-top: 2px;
+  }
+  .header-cta {
+    background: var(--gold);
+    color: #1a1a00;
+    padding: 9px 22px;
+    border-radius: 100px;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-decoration: none;
+    transition: opacity 0.2s;
+  }
+  .header-cta:hover { opacity: 0.88; }
+
+  /* ── TOP BAR ── */
+  .top-bar {
+    background: #004d4d;
+    color: rgba(255,255,255,0.75);
+    text-align: center;
+    padding: 8px 20px;
+    font-size: 12.5px;
+    letter-spacing: 0.06em;
+  }
+  .top-bar span { color: var(--gold); font-weight: 600; }
+
+  /* ── HERO ── */
+  .hero {
+    padding: 60px 0 36px;
+    display: grid;
+    grid-template-columns: 1fr 420px;
+    gap: 60px;
+    align-items: center;
+  }
+  .badge {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: rgba(0,102,102,0.1);
+    border: 1px solid rgba(0,102,102,0.25);
+    color: var(--teal);
+    padding: 6px 14px; border-radius: 100px;
+    font-size: 12px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase;
+    margin-bottom: 20px;
+    animation: fadeSlideDown 0.6s ease both;
+  }
+  .badge::before { content: "✦"; font-size: 10px; }
+  h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(34px, 4vw, 54px);
+    font-weight: 700; line-height: 1.1; color: var(--text);
+    margin-bottom: 18px;
+    animation: fadeSlideDown 0.7s ease 0.1s both;
+  }
+  h1 em { font-style: italic; color: var(--teal); }
+  .subtitle {
+    font-size: 16.5px; line-height: 1.65; color: var(--muted);
+    max-width: 480px; margin-bottom: 28px; font-weight: 300;
+    animation: fadeSlideDown 0.7s ease 0.2s both;
+  }
+  .features { display: flex; flex-direction: column; gap: 10px; margin-bottom: 32px; animation: fadeSlideDown 0.7s ease 0.3s both; }
+  .feature-item { display: flex; align-items: center; gap: 10px; font-size: 14px; color: var(--text); }
+  .feature-item .dot {
+    width: 20px; height: 20px; border-radius: 50%; background: var(--teal);
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0; font-size: 10px; color: white;
+  }
+
+  /* ── CARD ── */
+  .card {
+    background: white; border-radius: 20px; padding: 38px 34px;
+    box-shadow: 0 4px 40px rgba(0,102,102,0.1), 0 1px 4px rgba(0,0,0,0.04);
+    border: 1px solid rgba(0,102,102,0.08);
+    animation: fadeSlideUp 0.8s ease 0.2s both;
+    position: relative; overflow: hidden;
+  }
+  .card::before {
+    content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px;
+    background: linear-gradient(90deg, var(--teal), var(--teal-mid), var(--gold));
+  }
+  .card-title { font-family: 'Cormorant Garamond', serif; font-size: 22px; font-weight: 600; color: var(--text); margin-bottom: 4px; }
+  .card-sub { font-size: 13px; color: var(--muted); margin-bottom: 22px; }
+  .form-group { margin-bottom: 13px; }
+  label { display: block; font-size: 11.5px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--teal); margin-bottom: 5px; }
+  input {
+    width: 100%; padding: 11px 15px;
+    border: 1.5px solid #e0eeee; border-radius: 10px;
+    font-size: 14px; font-family: 'DM Sans', sans-serif;
+    color: var(--text); background: var(--cream);
+    transition: border-color 0.2s, box-shadow 0.2s; outline: none;
+  }
+  input:focus { border-color: var(--teal); box-shadow: 0 0 0 3px rgba(0,102,102,0.1); }
+  input::placeholder { color: #aabbbb; }
+  .btn {
+    width: 100%; padding: 14px;
+    background: var(--teal); color: white; border: none; border-radius: 10px;
+    font-size: 15px; font-family: 'DM Sans', sans-serif; font-weight: 600;
+    cursor: pointer; letter-spacing: 0.04em;
+    transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+    margin-top: 8px;
+  }
+  .btn:hover { background: #004d4d; transform: translateY(-1px); box-shadow: 0 6px 20px rgba(0,102,102,0.25); }
+  .btn:active { transform: translateY(0); }
+  .btn.loading { opacity: 0.7; pointer-events: none; }
+  .privacy { text-align: center; font-size: 11px; color: #99aaaa; margin-top: 10px; }
+  .privacy::before { content: "🔒  "; }
+
+  /* ── DELIVERY BADGES ── */
+  .delivery-badges {
+    display: flex; gap: 8px; margin-top: 14px; flex-wrap: wrap;
+  }
+  .d-badge {
+    flex: 1; min-width: 80px;
+    padding: 8px 10px; border-radius: 8px;
+    text-align: center; font-size: 11.5px; font-weight: 600;
+    display: flex; align-items: center; justify-content: center; gap: 5px;
+  }
+  .d-badge.email { background: #e8f5e9; color: #2e7d32; border: 1px solid #a5d6a7; }
+  .d-badge.whatsapp { background: #e8f5e9; color: #1b5e20; border: 1px solid #81c784; }
+
+  /* ── SUCCESS ── */
+  .success-state { display: none; text-align: center; padding: 16px 0; }
+  .success-icon {
+    width: 64px; height: 64px; border-radius: 50%;
+    background: linear-gradient(135deg, var(--teal), var(--teal-mid));
+    display: flex; align-items: center; justify-content: center;
+    margin: 0 auto 16px; font-size: 28px;
+    box-shadow: 0 4px 20px rgba(0,102,102,0.3);
+  }
+  .success-state h3 { font-family: 'Cormorant Garamond', serif; font-size: 24px; color: var(--teal); margin-bottom: 8px; }
+  .success-state p { font-size: 14px; color: var(--muted); line-height: 1.6; }
+  .success-links { display: flex; gap: 10px; margin-top: 18px; flex-wrap: wrap; justify-content: center; }
+  .success-link {
+    padding: 10px 18px; border-radius: 8px; font-size: 13px; font-weight: 600;
+    text-decoration: none; display: flex; align-items: center; gap: 6px;
+    transition: opacity 0.2s;
+  }
+  .success-link:hover { opacity: 0.82; }
+  .success-link.wa { background: #25D366; color: white; }
+  .success-link.em { background: var(--teal); color: white; }
+
+  /* ── PROOF ── */
+  .proof-strip {
+    background: linear-gradient(135deg, var(--teal) 0%, #004d4d 100%);
+    border-radius: 16px; padding: 30px 40px;
+    display: flex; justify-content: space-around; align-items: center;
+    flex-wrap: wrap; gap: 24px; margin-bottom: 52px;
+  }
+  .proof-item { text-align: center; color: white; }
+  .proof-num { font-family: 'Cormorant Garamond', serif; font-size: 40px; font-weight: 700; line-height: 1; color: var(--gold); }
+  .proof-label { font-size: 12px; opacity: 0.8; margin-top: 4px; letter-spacing: 0.05em; }
+
+  /* ── DIVIDER ── */
+  .divider { display: flex; align-items: center; gap: 16px; padding: 36px 0 28px; }
+  .divider-line { flex: 1; height: 1px; background: rgba(0,102,102,0.12); }
+  .divider-text { font-size: 12px; color: var(--muted); font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; }
+
+  /* ── QR SECTION ── */
+  .qr-section {
+    background: white; border-radius: 20px; padding: 38px 40px;
+    display: grid; grid-template-columns: auto 1fr; gap: 40px; align-items: center;
+    box-shadow: 0 2px 20px rgba(0,102,102,0.07); border: 1px solid rgba(0,102,102,0.08);
+    margin-bottom: 56px;
+  }
+  .qr-wrap {
+    padding: 14px; background: white; border-radius: 16px;
+    border: 2px solid var(--teal-light); box-shadow: 0 4px 20px rgba(0,102,102,0.12);
+  }
+  .qr-wrap svg { display: block; width: 176px; height: 176px; }
+  .qr-label { text-align: center; margin-top: 8px; font-size: 11px; font-weight: 700; color: var(--teal); letter-spacing: 0.1em; text-transform: uppercase; }
+  .qr-brand { text-align: center; font-family: 'Cormorant Garamond', serif; font-size: 15px; font-weight: 700; color: var(--gold); margin-top: 3px; letter-spacing: 0.08em; }
+  .qr-info h2 { font-family: 'Cormorant Garamond', serif; font-size: 27px; font-weight: 700; margin-bottom: 10px; color: var(--text); }
+  .qr-info p { font-size: 15px; color: var(--muted); line-height: 1.65; max-width: 440px; margin-bottom: 20px; }
+  .qr-steps { display: flex; gap: 18px; flex-wrap: wrap; }
+  .qr-step { display: flex; align-items: center; gap: 8px; font-size: 13px; color: var(--text); font-weight: 500; }
+  .step-num {
+    width: 26px; height: 26px; background: var(--teal-light); border: 1.5px solid var(--teal-mid);
+    color: var(--teal); border-radius: 50%;
+    display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 700; flex-shrink: 0;
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    background: #004d4d; color: rgba(255,255,255,0.65);
+    text-align: center; padding: 28px 24px;
+    font-size: 12.5px; line-height: 1.9;
+  }
+  footer a { color: var(--gold); text-decoration: none; }
+  footer strong { color: white; font-size: 16px; font-family: 'Cormorant Garamond', serif; letter-spacing: 0.06em; }
+
+  /* ── ERROR ── */
+  .err { color: #c62828; font-size: 12px; margin-top: 4px; display: none; }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeSlideDown { from { opacity:0; transform:translateY(-18px); } to { opacity:1; transform:translateY(0); } }
+  @keyframes fadeSlideUp   { from { opacity:0; transform:translateY(20px);  } to { opacity:1; transform:translateY(0); } }
+
+  @media (max-width: 760px) {
+    .hero { grid-template-columns: 1fr; gap: 32px; }
+    .qr-section { grid-template-columns: 1fr; text-align: center; }
+    .qr-wrap { display: inline-block; }
+    .qr-steps { justify-content: center; }
+    .proof-strip { padding: 24px 16px; }
+    .header-inner { justify-content: center; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<!-- SITE HEADER -->
+<header class="site-header">
+  <div class="header-inner">
+    <div class="logo">
+      <div class="logo-icon">🩸</div>
+      <div class="logo-text">
+        <span class="logo-title">LEECH INDIA</span>
+        <span class="logo-sub">Jalaukavacharana Specialists</span>
+      </div>
+    </div>
+    <a href="#form" class="header-cta">Get Free Checklist</a>
+  </div>
+</header>
+
+<div class="top-bar">
+  🌿 Free Clinical Resource &nbsp;·&nbsp; <span>Jalaukavacharana Safety Checklist</span> &nbsp;·&nbsp; Sent via Email &amp; WhatsApp instantly
+</div>
+
+<div class="wrapper">
+
+  <!-- HERO -->
+  <section class="hero" id="form">
+    <div class="hero-text">
+      <div class="badge">Free Download — LEECH INDIA</div>
+      <h1>Safe Leech Therapy Starts with a <em>Checklist</em></h1>
+      <p class="subtitle">
+        A ready-to-use, OPD-tested safety protocol for Jalaukavacharana —
+        covering patient screening, contraindications, procedure monitoring &amp; documentation.
+      </p>
+      <div class="features">
+        <div class="feature-item"><span class="dot">✓</span> 5-section clinical checklist (print-ready Word doc)</div>
+        <div class="feature-item"><span class="dot">✓</span> Absolute &amp; relative contraindication guide</div>
+        <div class="feature-item"><span class="dot">✓</span> Intra-procedure monitoring prompts</div>
+        <div class="feature-item"><span class="dot">✓</span> OPD documentation &amp; consent reminders</div>
+        <div class="feature-item"><span class="dot">✓</span> Based on Ashtanga Hridayam &amp; Sushruta Samhita</div>
+        <div class="feature-item"><span class="dot">✓</span> Delivered to your Email &amp; WhatsApp instantly</div>
+      </div>
+    </div>
+
+    <!-- FORM CARD -->
+    <div class="card">
+      <div id="form-state">
+        <div class="card-title">Get the Free Checklist</div>
+        <div class="card-sub">Delivered to your inbox &amp; WhatsApp — instantly</div>
+
+        <div class="form-group">
+          <label>Full Name</label>
+          <input type="text" id="inp-name" placeholder="Dr. Priya Sharma" autocomplete="name" />
+          <div class="err" id="err-name">Please enter your name</div>
+        </div>
+        <div class="form-group">
+          <label>Email Address</label>
+          <input type="email" id="inp-email" placeholder="dr.sharma@clinic.com" autocomplete="email" />
+          <div class="err" id="err-email">Please enter a valid email</div>
+        </div>
+        <div class="form-group">
+          <label>WhatsApp Number</label>
+          <input type="tel" id="inp-wa" placeholder="+91 98XXXXXXXX" autocomplete="tel" />
+          <div class="err" id="err-wa">Please enter your WhatsApp number</div>
+        </div>
+        <div class="form-group">
+          <label>Specialisation</label>
+          <input type="text" id="inp-spec" placeholder="Panchakarma / General Ayurveda…" />
+        </div>
+
+        <div class="delivery-badges">
+          <div class="d-badge email">📧 Email</div>
+          <div class="d-badge whatsapp">💬 WhatsApp</div>
+        </div>
+
+        <button class="btn" id="submit-btn" onclick="handleSubmit()">Send Me the Checklist →</button>
+        <div class="privacy">We respect your privacy. Zero spam, ever.</div>
+      </div>
+
+      <div class="success-state" id="success-state">
+        <div class="success-icon">✓</div>
+        <h3>You're all set!</h3>
+        <p>The <strong>LEECH INDIA</strong> Jalaukavacharana Safety Checklist has been sent to your email and WhatsApp. Welcome to safer practice!</p>
+        <div class="success-links">
+          <a id="wa-link" class="success-link wa" href="#" target="_blank">💬 Open WhatsApp</a>
+          <a id="em-link" class="success-link em" href="#" target="_blank">📧 Open Email</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROOF STRIP -->
+  <div class="proof-strip">
+    <div class="proof-item"><div class="proof-num">5</div><div class="proof-label">Clinical Sections</div></div>
+    <div class="proof-item"><div class="proof-num">30+</div><div class="proof-label">Safety Checkpoints</div></div>
+    <div class="proof-item"><div class="proof-num">100%</div><div class="proof-label">Free — Always</div></div>
+    <div class="proof-item"><div class="proof-num">OPD</div><div class="proof-label">Ready to Print</div></div>
+  </div>
+
+  <!-- DIVIDER -->
+  <div class="divider">
+    <div class="divider-line"></div>
+    <div class="divider-text">Or scan to access from anywhere</div>
+    <div class="divider-line"></div>
+  </div>
+
+  <!-- QR SECTION -->
+  <div class="qr-section">
+    <div>
+      <div class="qr-wrap">
+        <svg xmlns="http://www.w3.org/2000/svg" width="396" height="396" viewBox="0 0 396 396">
+<rect width="396" height="396" fill="white"/>
+<rect x="48" y="48" width="12" height="12" fill="#006666"/>
+<rect x="60" y="48" width="12" height="12" fill="#006666"/>
+<rect x="72" y="48" width="12" height="12" fill="#006666"/>
+<rect x="84" y="48" width="12" height="12" fill="#006666"/>
+<rect x="96" y="48" width="12" height="12" fill="#006666"/>
+<rect x="108" y="48" width="12" height="12" fill="#006666"/>
+<rect x="120" y="48" width="12" height="12" fill="#006666"/>
+<rect x="144" y="48" width="12" height="12" fill="#006666"/>
+<rect x="156" y="48" width="12" height="12" fill="#006666"/>
+<rect x="204" y="48" width="12" height="12" fill="#006666"/>
+<rect x="264" y="48" width="12" height="12" fill="#006666"/>
+<rect x="276" y="48" width="12" height="12" fill="#006666"/>
+<rect x="288" y="48" width="12" height="12" fill="#006666"/>
+<rect x="300" y="48" width="12" height="12" fill="#006666"/>
+<rect x="312" y="48" width="12" height="12" fill="#006666"/>
+<rect x="324" y="48" width="12" height="12" fill="#006666"/>
+<rect x="336" y="48" width="12" height="12" fill="#006666"/>
+<rect x="48" y="60" width="12" height="12" fill="#006666"/>
+<rect x="120" y="60" width="12" height="12" fill="#006666"/>
+<rect x="144" y="60" width="12" height="12" fill="#006666"/>
+<rect x="156" y="60" width="12" height="12" fill="#006666"/>
+<rect x="168" y="60" width="12" height="12" fill="#006666"/>
+<rect x="204" y="60" width="12" height="12" fill="#006666"/>
+<rect x="216" y="60" width="12" height="12" fill="#006666"/>
+<rect x="228" y="60" width="12" height="12" fill="#006666"/>
+<rect x="264" y="60" width="12" height="12" fill="#006666"/>
+<rect x="336" y="60" width="12" height="12" fill="#006666"/>
+<rect x="48" y="72" width="12" height="12" fill="#006666"/>
+<rect x="72" y="72" width="12" height="12" fill="#006666"/>
+<rect x="84" y="72" width="12" height="12" fill="#006666"/>
+<rect x="96" y="72" width="12" height="12" fill="#006666"/>
+<rect x="120" y="72" width="12" height="12" fill="#006666"/>
+<rect x="144" y="72" width="12" height="12" fill="#006666"/>
+<rect x="168" y="72" width="12" height="12" fill="#006666"/>
+<rect x="192" y="72" width="12" height="12" fill="#006666"/>
+<rect x="204" y="72" width="12" height="12" fill="#006666"/>
+<rect x="264" y="72" width="12" height="12" fill="#006666"/>
+<rect x="288" y="72" width="12" height="12" fill="#006666"/>
+<rect x="300" y="72" width="12" height="12" fill="#006666"/>
+<rect x="312" y="72" width="12" height="12" fill="#006666"/>
+<rect x="336" y="72" width="12" height="12" fill="#006666"/>
+<rect x="48" y="84" width="12" height="12" fill="#006666"/>
+<rect x="72" y="84" width="12" height="12" fill="#006666"/>
+<rect x="84" y="84" width="12" height="12" fill="#006666"/>
+<rect x="96" y="84" width="12" height="12" fill="#006666"/>
+<rect x="120" y="84" width="12" height="12" fill="#006666"/>
+<rect x="144" y="84" width="12" height="12" fill="#006666"/>
+<rect x="156" y="84" width="12" height="12" fill="#006666"/>
+<rect x="168" y="84" width="12" height="12" fill="#006666"/>
+<rect x="204" y="84" width="12" height="12" fill="#006666"/>
+<rect x="216" y="84" width="12" height="12" fill="#006666"/>
+<rect x="228" y="84" width="12" height="12" fill="#006666"/>
+<rect x="264" y="84" width="12" height="12" fill="#006666"/>
+<rect x="288" y="84" width="12" height="12" fill="#006666"/>
+<rect x="300" y="84" width="12" height="12" fill="#006666"/>
+<rect x="312" y="84" width="12" height="12" fill="#006666"/>
+<rect x="336" y="84" width="12" height="12" fill="#006666"/>
+<rect x="48" y="96" width="12" height="12" fill="#006666"/>
+<rect x="72" y="96" width="12" height="12" fill="#006666"/>
+<rect x="84" y="96" width="12" height="12" fill="#006666"/>
+<rect x="96" y="96" width="12" height="12" fill="#006666"/>
+<rect x="120" y="96" width="12" height="12" fill="#006666"/>
+<rect x="144" y="96" width="12" height="12" fill="#006666"/>
+<rect x="156" y="96" width="12" height="12" fill="#006666"/>
+<rect x="168" y="96" width="12" height="12" fill="#006666"/>
+<rect x="180" y="96" width="12" height="12" fill="#006666"/>
+<rect x="216" y="96" width="12" height="12" fill="#006666"/>
+<rect x="228" y="96" width="12" height="12" fill="#006666"/>
+<rect x="264" y="96" width="12" height="12" fill="#006666"/>
+<rect x="288" y="96" width="12" height="12" fill="#006666"/>
+<rect x="300" y="96" width="12" height="12" fill="#006666"/>
+<rect x="312" y="96" width="12" height="12" fill="#006666"/>
+<rect x="336" y="96" width="12" height="12" fill="#006666"/>
+<rect x="48" y="108" width="12" height="12" fill="#006666"/>
+<rect x="120" y="108" width="12" height="12" fill="#006666"/>
+<rect x="168" y="108" width="12" height="12" fill="#006666"/>
+<rect x="216" y="108" width="12" height="12" fill="#006666"/>
+<rect x="228" y="108" width="12" height="12" fill="#006666"/>
+<rect x="240" y="108" width="12" height="12" fill="#006666"/>
+<rect x="264" y="108" width="12" height="12" fill="#006666"/>
+<rect x="336" y="108" width="12" height="12" fill="#006666"/>
+<rect x="48" y="120" width="12" height="12" fill="#006666"/>
+<rect x="60" y="120" width="12" height="12" fill="#006666"/>
+<rect x="72" y="120" width="12" height="12" fill="#006666"/>
+<rect x="84" y="120" width="12" height="12" fill="#006666"/>
+<rect x="96" y="120" width="12" height="12" fill="#006666"/>
+<rect x="108" y="120" width="12" height="12" fill="#006666"/>
+<rect x="120" y="120" width="12" height="12" fill="#006666"/>
+<rect x="144" y="120" width="12" height="12" fill="#006666"/>
+<rect x="168" y="120" width="12" height="12" fill="#006666"/>
+<rect x="192" y="120" width="12" height="12" fill="#006666"/>
+<rect x="216" y="120" width="12" height="12" fill="#006666"/>
+<rect x="240" y="120" width="12" height="12" fill="#006666"/>
+<rect x="264" y="120" width="12" height="12" fill="#006666"/>
+<rect x="276" y="120" width="12" height="12" fill="#006666"/>
+<rect x="288" y="120" width="12" height="12" fill="#006666"/>
+<rect x="300" y="120" width="12" height="12" fill="#006666"/>
+<rect x="312" y="120" width="12" height="12" fill="#006666"/>
+<rect x="324" y="120" width="12" height="12" fill="#006666"/>
+<rect x="336" y="120" width="12" height="12" fill="#006666"/>
+<rect x="156" y="132" width="12" height="12" fill="#006666"/>
+<rect x="192" y="132" width="12" height="12" fill="#006666"/>
+<rect x="204" y="132" width="12" height="12" fill="#006666"/>
+<rect x="240" y="132" width="12" height="12" fill="#006666"/>
+<rect x="72" y="144" width="12" height="12" fill="#006666"/>
+<rect x="84" y="144" width="12" height="12" fill="#006666"/>
+<rect x="120" y="144" width="12" height="12" fill="#006666"/>
+<rect x="132" y="144" width="12" height="12" fill="#006666"/>
+<rect x="168" y="144" width="12" height="12" fill="#006666"/>
+<rect x="192" y="144" width="12" height="12" fill="#006666"/>
+<rect x="204" y="144" width="12" height="12" fill="#006666"/>
+<rect x="216" y="144" width="12" height="12" fill="#006666"/>
+<rect x="288" y="144" width="12" height="12" fill="#006666"/>
+<rect x="300" y="144" width="12" height="12" fill="#006666"/>
+<rect x="312" y="144" width="12" height="12" fill="#006666"/>
+<rect x="324" y="144" width="12" height="12" fill="#006666"/>
+<rect x="336" y="144" width="12" height="12" fill="#006666"/>
+<rect x="60" y="156" width="12" height="12" fill="#006666"/>
+<rect x="84" y="156" width="12" height="12" fill="#006666"/>
+<rect x="108" y="156" width="12" height="12" fill="#006666"/>
+<rect x="132" y="156" width="12" height="12" fill="#006666"/>
+<rect x="156" y="156" width="12" height="12" fill="#006666"/>
+<rect x="240" y="156" width="12" height="12" fill="#006666"/>
+<rect x="288" y="156" width="12" height="12" fill="#006666"/>
+<rect x="336" y="156" width="12" height="12" fill="#006666"/>
+<rect x="48" y="168" width="12" height="12" fill="#006666"/>
+<rect x="72" y="168" width="12" height="12" fill="#006666"/>
+<rect x="96" y="168" width="12" height="12" fill="#006666"/>
+<rect x="120" y="168" width="12" height="12" fill="#006666"/>
+<rect x="144" y="168" width="12" height="12" fill="#006666"/>
+<rect x="192" y="168" width="12" height="12" fill="#006666"/>
+<rect x="204" y="168" width="12" height="12" fill="#006666"/>
+<rect x="228" y="168" width="12" height="12" fill="#006666"/>
+<rect x="252" y="168" width="12" height="12" fill="#006666"/>
+<rect x="264" y="168" width="12" height="12" fill="#006666"/>
+<rect x="276" y="168" width="12" height="12" fill="#006666"/>
+<rect x="288" y="168" width="12" height="12" fill="#006666"/>
+<rect x="312" y="168" width="12" height="12" fill="#006666"/>
+<rect x="324" y="168" width="12" height="12" fill="#006666"/>
+<rect x="336" y="168" width="12" height="12" fill="#006666"/>
+<rect x="60" y="180" width="12" height="12" fill="#006666"/>
+<rect x="84" y="180" width="12" height="12" fill="#006666"/>
+<rect x="108" y="180" width="12" height="12" fill="#006666"/>
+<rect x="132" y="180" width="12" height="12" fill="#006666"/>
+<rect x="156" y="180" width="12" height="12" fill="#006666"/>
+<rect x="168" y="180" width="12" height="12" fill="#006666"/>
+<rect x="204" y="180" width="12" height="12" fill="#006666"/>
+<rect x="240" y="180" width="12" height="12" fill="#006666"/>
+<rect x="288" y="180" width="12" height="12" fill="#006666"/>
+<rect x="324" y="180" width="12" height="12" fill="#006666"/>
+<rect x="48" y="192" width="12" height="12" fill="#006666"/>
+<rect x="72" y="192" width="12" height="12" fill="#006666"/>
+<rect x="96" y="192" width="12" height="12" fill="#006666"/>
+<rect x="120" y="192" width="12" height="12" fill="#006666"/>
+<rect x="144" y="192" width="12" height="12" fill="#006666"/>
+<rect x="204" y="192" width="12" height="12" fill="#006666"/>
+<rect x="240" y="192" width="12" height="12" fill="#006666"/>
+<rect x="252" y="192" width="12" height="12" fill="#006666"/>
+<rect x="276" y="192" width="12" height="12" fill="#006666"/>
+<rect x="300" y="192" width="12" height="12" fill="#006666"/>
+<rect x="324" y="192" width="12" height="12" fill="#006666"/>
+<rect x="336" y="192" width="12" height="12" fill="#006666"/>
+<rect x="60" y="204" width="12" height="12" fill="#006666"/>
+<rect x="84" y="204" width="12" height="12" fill="#006666"/>
+<rect x="108" y="204" width="12" height="12" fill="#006666"/>
+<rect x="132" y="204" width="12" height="12" fill="#006666"/>
+<rect x="204" y="204" width="12" height="12" fill="#006666"/>
+<rect x="216" y="204" width="12" height="12" fill="#006666"/>
+<rect x="228" y="204" width="12" height="12" fill="#006666"/>
+<rect x="240" y="204" width="12" height="12" fill="#006666"/>
+<rect x="252" y="204" width="12" height="12" fill="#006666"/>
+<rect x="276" y="204" width="12" height="12" fill="#006666"/>
+<rect x="288" y="204" width="12" height="12" fill="#006666"/>
+<rect x="300" y="204" width="12" height="12" fill="#006666"/>
+<rect x="336" y="204" width="12" height="12" fill="#006666"/>
+<rect x="48" y="216" width="12" height="12" fill="#006666"/>
+<rect x="72" y="216" width="12" height="12" fill="#006666"/>
+<rect x="96" y="216" width="12" height="12" fill="#006666"/>
+<rect x="120" y="216" width="12" height="12" fill="#006666"/>
+<rect x="144" y="216" width="12" height="12" fill="#006666"/>
+<rect x="156" y="216" width="12" height="12" fill="#006666"/>
+<rect x="168" y="216" width="12" height="12" fill="#006666"/>
+<rect x="192" y="216" width="12" height="12" fill="#006666"/>
+<rect x="216" y="216" width="12" height="12" fill="#006666"/>
+<rect x="228" y="216" width="12" height="12" fill="#006666"/>
+<rect x="240" y="216" width="12" height="12" fill="#006666"/>
+<rect x="276" y="216" width="12" height="12" fill="#006666"/>
+<rect x="288" y="216" width="12" height="12" fill="#006666"/>
+<rect x="312" y="216" width="12" height="12" fill="#006666"/>
+<rect x="324" y="216" width="12" height="12" fill="#006666"/>
+<rect x="336" y="216" width="12" height="12" fill="#006666"/>
+<rect x="60" y="228" width="12" height="12" fill="#006666"/>
+<rect x="84" y="228" width="12" height="12" fill="#006666"/>
+<rect x="108" y="228" width="12" height="12" fill="#006666"/>
+<rect x="132" y="228" width="12" height="12" fill="#006666"/>
+<rect x="156" y="228" width="12" height="12" fill="#006666"/>
+<rect x="168" y="228" width="12" height="12" fill="#006666"/>
+<rect x="204" y="228" width="12" height="12" fill="#006666"/>
+<rect x="216" y="228" width="12" height="12" fill="#006666"/>
+<rect x="228" y="228" width="12" height="12" fill="#006666"/>
+<rect x="252" y="228" width="12" height="12" fill="#006666"/>
+<rect x="324" y="228" width="12" height="12" fill="#006666"/>
+<rect x="48" y="240" width="12" height="12" fill="#006666"/>
+<rect x="72" y="240" width="12" height="12" fill="#006666"/>
+<rect x="96" y="240" width="12" height="12" fill="#006666"/>
+<rect x="120" y="240" width="12" height="12" fill="#006666"/>
+<rect x="144" y="240" width="12" height="12" fill="#006666"/>
+<rect x="180" y="240" width="12" height="12" fill="#006666"/>
+<rect x="192" y="240" width="12" height="12" fill="#006666"/>
+<rect x="204" y="240" width="12" height="12" fill="#006666"/>
+<rect x="228" y="240" width="12" height="12" fill="#006666"/>
+<rect x="240" y="240" width="12" height="12" fill="#006666"/>
+<rect x="300" y="240" width="12" height="12" fill="#006666"/>
+<rect x="144" y="252" width="12" height="12" fill="#006666"/>
+<rect x="156" y="252" width="12" height="12" fill="#006666"/>
+<rect x="192" y="252" width="12" height="12" fill="#006666"/>
+<rect x="216" y="252" width="12" height="12" fill="#006666"/>
+<rect x="228" y="252" width="12" height="12" fill="#006666"/>
+<rect x="240" y="252" width="12" height="12" fill="#006666"/>
+<rect x="264" y="252" width="12" height="12" fill="#006666"/>
+<rect x="288" y="252" width="12" height="12" fill="#006666"/>
+<rect x="300" y="252" width="12" height="12" fill="#006666"/>
+<rect x="324" y="252" width="12" height="12" fill="#006666"/>
+<rect x="336" y="252" width="12" height="12" fill="#006666"/>
+<rect x="48" y="264" width="12" height="12" fill="#006666"/>
+<rect x="60" y="264" width="12" height="12" fill="#006666"/>
+<rect x="72" y="264" width="12" height="12" fill="#006666"/>
+<rect x="84" y="264" width="12" height="12" fill="#006666"/>
+<rect x="96" y="264" width="12" height="12" fill="#006666"/>
+<rect x="108" y="264" width="12" height="12" fill="#006666"/>
+<rect x="120" y="264" width="12" height="12" fill="#006666"/>
+<rect x="144" y="264" width="12" height="12" fill="#006666"/>
+<rect x="180" y="264" width="12" height="12" fill="#006666"/>
+<rect x="192" y="264" width="12" height="12" fill="#006666"/>
+<rect x="204" y="264" width="12" height="12" fill="#006666"/>
+<rect x="216" y="264" width="12" height="12" fill="#006666"/>
+<rect x="228" y="264" width="12" height="12" fill="#006666"/>
+<rect x="240" y="264" width="12" height="12" fill="#006666"/>
+<rect x="252" y="264" width="12" height="12" fill="#006666"/>
+<rect x="264" y="264" width="12" height="12" fill="#006666"/>
+<rect x="276" y="264" width="12" height="12" fill="#006666"/>
+<rect x="288" y="264" width="12" height="12" fill="#006666"/>
+<rect x="300" y="264" width="12" height="12" fill="#006666"/>
+<rect x="324" y="264" width="12" height="12" fill="#006666"/>
+<rect x="336" y="264" width="12" height="12" fill="#006666"/>
+<rect x="48" y="276" width="12" height="12" fill="#006666"/>
+<rect x="120" y="276" width="12" height="12" fill="#006666"/>
+<rect x="156" y="276" width="12" height="12" fill="#006666"/>
+<rect x="180" y="276" width="12" height="12" fill="#006666"/>
+<rect x="228" y="276" width="12" height="12" fill="#006666"/>
+<rect x="240" y="276" width="12" height="12" fill="#006666"/>
+<rect x="288" y="276" width="12" height="12" fill="#006666"/>
+<rect x="300" y="276" width="12" height="12" fill="#006666"/>
+<rect x="336" y="276" width="12" height="12" fill="#006666"/>
+<rect x="48" y="288" width="12" height="12" fill="#006666"/>
+<rect x="72" y="288" width="12" height="12" fill="#006666"/>
+<rect x="84" y="288" width="12" height="12" fill="#006666"/>
+<rect x="96" y="288" width="12" height="12" fill="#006666"/>
+<rect x="120" y="288" width="12" height="12" fill="#006666"/>
+<rect x="180" y="288" width="12" height="12" fill="#006666"/>
+<rect x="216" y="288" width="12" height="12" fill="#006666"/>
+<rect x="228" y="288" width="12" height="12" fill="#006666"/>
+<rect x="276" y="288" width="12" height="12" fill="#006666"/>
+<rect x="300" y="288" width="12" height="12" fill="#006666"/>
+<rect x="324" y="288" width="12" height="12" fill="#006666"/>
+<rect x="336" y="288" width="12" height="12" fill="#006666"/>
+<rect x="48" y="300" width="12" height="12" fill="#006666"/>
+<rect x="72" y="300" width="12" height="12" fill="#006666"/>
+<rect x="84" y="300" width="12" height="12" fill="#006666"/>
+<rect x="96" y="300" width="12" height="12" fill="#006666"/>
+<rect x="120" y="300" width="12" height="12" fill="#006666"/>
+<rect x="144" y="300" width="12" height="12" fill="#006666"/>
+<rect x="156" y="300" width="12" height="12" fill="#006666"/>
+<rect x="180" y="300" width="12" height="12" fill="#006666"/>
+<rect x="204" y="300" width="12" height="12" fill="#006666"/>
+<rect x="216" y="300" width="12" height="12" fill="#006666"/>
+<rect x="228" y="300" width="12" height="12" fill="#006666"/>
+<rect x="240" y="300" width="12" height="12" fill="#006666"/>
+<rect x="264" y="300" width="12" height="12" fill="#006666"/>
+<rect x="276" y="300" width="12" height="12" fill="#006666"/>
+<rect x="288" y="300" width="12" height="12" fill="#006666"/>
+<rect x="300" y="300" width="12" height="12" fill="#006666"/>
+<rect x="312" y="300" width="12" height="12" fill="#006666"/>
+<rect x="324" y="300" width="12" height="12" fill="#006666"/>
+<rect x="336" y="300" width="12" height="12" fill="#006666"/>
+<rect x="48" y="312" width="12" height="12" fill="#006666"/>
+<rect x="72" y="312" width="12" height="12" fill="#006666"/>
+<rect x="84" y="312" width="12" height="12" fill="#006666"/>
+<rect x="96" y="312" width="12" height="12" fill="#006666"/>
+<rect x="120" y="312" width="12" height="12" fill="#006666"/>
+<rect x="144" y="312" width="12" height="12" fill="#006666"/>
+<rect x="168" y="312" width="12" height="12" fill="#006666"/>
+<rect x="192" y="312" width="12" height="12" fill="#006666"/>
+<rect x="228" y="312" width="12" height="12" fill="#006666"/>
+<rect x="240" y="312" width="12" height="12" fill="#006666"/>
+<rect x="264" y="312" width="12" height="12" fill="#006666"/>
+<rect x="288" y="312" width="12" height="12" fill="#006666"/>
+<rect x="336" y="312" width="12" height="12" fill="#006666"/>
+<rect x="48" y="324" width="12" height="12" fill="#006666"/>
+<rect x="120" y="324" width="12" height="12" fill="#006666"/>
+<rect x="156" y="324" width="12" height="12" fill="#006666"/>
+<rect x="204" y="324" width="12" height="12" fill="#006666"/>
+<rect x="288" y="324" width="12" height="12" fill="#006666"/>
+<rect x="300" y="324" width="12" height="12" fill="#006666"/>
+<rect x="324" y="324" width="12" height="12" fill="#006666"/>
+<rect x="48" y="336" width="12" height="12" fill="#006666"/>
+<rect x="60" y="336" width="12" height="12" fill="#006666"/>
+<rect x="72" y="336" width="12" height="12" fill="#006666"/>
+<rect x="84" y="336" width="12" height="12" fill="#006666"/>
+<rect x="96" y="336" width="12" height="12" fill="#006666"/>
+<rect x="108" y="336" width="12" height="12" fill="#006666"/>
+<rect x="120" y="336" width="12" height="12" fill="#006666"/>
+<rect x="168" y="336" width="12" height="12" fill="#006666"/>
+<rect x="180" y="336" width="12" height="12" fill="#006666"/>
+<rect x="204" y="336" width="12" height="12" fill="#006666"/>
+<rect x="216" y="336" width="12" height="12" fill="#006666"/>
+<rect x="240" y="336" width="12" height="12" fill="#006666"/>
+<rect x="276" y="336" width="12" height="12" fill="#006666"/>
+<rect x="324" y="336" width="12" height="12" fill="#006666"/>
+<rect x="336" y="336" width="12" height="12" fill="#006666"/>
+</svg>
+        <div class="qr-label">Scan to access</div>
+        <div class="qr-brand">LEECH INDIA</div>
+      </div>
+    </div>
+    <div class="qr-info">
+      <h2>Share at Conferences &amp; Workshops</h2>
+      <p>
+        Print and display this QR at your OPD, seminar table, or visiting card.
+        Colleagues scan once — enter their details — and receive the checklist
+        on both <strong>Email</strong> and <strong>WhatsApp</strong> instantly.
+        All lead data is collected directly to <strong>LEECH INDIA</strong>.
+      </p>
+      <div class="qr-steps">
+        <div class="qr-step"><span class="step-num">1</span> Scan QR code</div>
+        <div class="qr-step"><span class="step-num">2</span> Enter name, email &amp; WhatsApp</div>
+        <div class="qr-step"><span class="step-num">3</span> Checklist delivered instantly</div>
+        <div class="qr-step"><span class="step-num">4</span> Lead data sent to LEECH INDIA</div>
+      </div>
+    </div>
+  </div>
+
+</div><!-- /wrapper -->
+
+<footer>
+  <strong>LEECH INDIA</strong><br>
+  Jalaukavacharana Specialists &nbsp;·&nbsp; Free Clinical Resource<br>
+  📧 <a href="mailto:leechindia469@gmail.com">leechindia469@gmail.com</a>
+  &nbsp;·&nbsp;
+  💬 <a href="https://wa.me/919881495937" target="_blank">+91 98814 95937</a><br>
+  <span style="font-size:11px;opacity:0.5;margin-top:6px;display:block;">
+    Update the QR code URL after hosting this page &nbsp;·&nbsp;
+    <a href="#">Privacy Policy</a> &nbsp;·&nbsp; <a href="#">Unsubscribe</a>
+  </span>
+</footer>
+
+<script>
+  const OWNER_EMAIL    = "leechindia469@gmail.com";
+  const OWNER_WA       = "919881495937";
+  const CHECKLIST_URL  = window.location.href; // update to hosted URL
+
+  function show(id)  { document.getElementById(id).style.display = 'block'; }
+  function hide(id)  { document.getElementById(id).style.display = 'none'; }
+  function val(id)   { return document.getElementById(id).value.trim(); }
+
+  function handleSubmit() {
+    // ── Validation ──
+    let ok = true;
+    ['name','email','wa'].forEach(f => hide('err-'+f));
+
+    const name  = val('inp-name');
+    const email = val('inp-email');
+    const wa    = val('inp-wa');
+    const spec  = val('inp-spec');
+
+    if (!name)  { show('err-name');  ok = false; }
+    if (!email || !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)) { show('err-email'); ok = false; }
+    if (!wa)    { show('err-wa');    ok = false; }
+    if (!ok) return;
+
+    const btn = document.getElementById('submit-btn');
+    btn.textContent = 'Sending…';
+    btn.classList.add('loading');
+
+    // ── Clean WhatsApp number ──
+    const waClean = wa.replace(/[^\d]/g, '');
+    const waNum   = waClean.startsWith('0') ? '91' + waClean.slice(1) : waClean;
+
+    // ── 1. Notify OWNER via mailto (opens email client with lead data) ──
+    const leadSubject = encodeURIComponent('New Lead — LEECH INDIA Checklist');
+    const leadBody    = encodeURIComponent(
+      'New lead captured via LEECH INDIA checklist page:\n\n' +
+      'Name:           ' + name + '\n' +
+      'Email:          ' + email + '\n' +
+      'WhatsApp:       +' + waNum + '\n' +
+      'Specialisation: ' + (spec || 'Not provided') + '\n' +
+      'Timestamp:      ' + new Date().toLocaleString('en-IN', {timeZone:'Asia/Kolkata'}) + '\n' +
+      'Page URL:       ' + CHECKLIST_URL
+    );
+    const ownerMailtoHref = 'mailto:' + OWNER_EMAIL +
+      '?subject=' + leadSubject + '&body=' + leadBody;
+
+    // ── 2. Send checklist to LEAD via mailto ──
+    const toLeadSubject = encodeURIComponent('Your Free LEECH INDIA Checklist is here!');
+    const toLeadBody    = encodeURIComponent(
+      'Dear ' + name + ',\n\n' +
+      'Thank you for your interest in the LEECH INDIA Jalaukavacharana Safety Checklist.\n\n' +
+      'Your checklist covers:\n' +
+      '  ✔ Quick Patient Screening\n' +
+      '  ✔ Pre-Procedure Safety Checks\n' +
+      '  ✔ Contraindication Reminders\n' +
+      '  ✔ Intra-Procedure Monitoring\n' +
+      '  ✔ Documentation Points\n\n' +
+      'Reply to this email to receive the Word document attachment.\n\n' +
+      'For any queries, WhatsApp us: +91 98814 95937\n\n' +
+      'Warm regards,\n' +
+      'LEECH INDIA Team\n' +
+      'leechindia469@gmail.com'
+    );
+    const leadMailtoHref = 'mailto:' + encodeURIComponent(email) +
+      '?subject=' + toLeadSubject + '&body=' + toLeadBody;
+
+    // ── 3. WhatsApp message to lead ──
+    const waMsg = encodeURIComponent(
+      'Hello ' + name + '! 🌿\n\n' +
+      'Thank you for your interest in *LEECH INDIA* — Jalaukavacharana Safety Checklist.\n\n' +
+      'Your checklist covers:\n' +
+      '✔ Quick Patient Screening\n' +
+      '✔ Pre-Procedure Safety Checks\n' +
+      '✔ Contraindication Reminders (Absolute & Relative)\n' +
+      '✔ Intra-Procedure Monitoring\n' +
+      '✔ OPD Documentation Points\n\n' +
+      'Reply *CHECKLIST* and we will send you the Word document right away!\n\n' +
+      'For queries, email us: leechindia469@gmail.com\n\n' +
+      '— *LEECH INDIA Team*'
+    );
+    const waHref = 'https://wa.me/' + waNum + '?text=' + waMsg;
+
+    // ── 4. Notify owner via WhatsApp ──
+    const ownerWaMsg = encodeURIComponent(
+      '🔔 *New Lead — LEECH INDIA Checklist*\n\n' +
+      'Name: ' + name + '\n' +
+      'Email: ' + email + '\n' +
+      'WhatsApp: +' + waNum + '\n' +
+      'Specialisation: ' + (spec || 'N/A') + '\n' +
+      'Time: ' + new Date().toLocaleString('en-IN', {timeZone:'Asia/Kolkata'})
+    );
+    const ownerWaHref = 'https://wa.me/' + OWNER_WA + '?text=' + ownerWaMsg;
+
+    // ── Update success links ──
+    document.getElementById('wa-link').href = waHref;
+    document.getElementById('em-link').href = leadMailtoHref;
+
+    // ── Sequence: open windows ──
+    setTimeout(() => {
+      // Open lead WhatsApp message
+      window.open(waHref, '_blank');
+    }, 400);
+    setTimeout(() => {
+      // Open owner notification email
+      window.location.href = ownerMailtoHref;
+    }, 900);
+    setTimeout(() => {
+      // Show success
+      hide('form-state');
+      const s = document.getElementById('success-state');
+      s.style.display = 'block';
+      s.style.animation = 'fadeSlideUp 0.5s ease both';
+      btn.classList.remove('loading');
+    }, 1200);
+
+    // Also log to console for debugging
+    console.log('LEECH INDIA Lead:', { name, email, wa: '+'+waNum, spec });
+  }
+</script>
+
+</body>
+</html>
